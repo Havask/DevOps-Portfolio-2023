@@ -9,7 +9,7 @@ RUN npm run build
 # Stage 2: Serve React.js app with a lightweight HTTP server
 FROM node:14-alpine
 WORKDIR /app
-COPY --from=build /app/build ./build
+COPY --from=build ./build ./build   
 RUN npm install -g serve
 CMD ["serve", "-s", "build"]
 
