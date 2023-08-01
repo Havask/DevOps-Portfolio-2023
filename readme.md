@@ -13,7 +13,7 @@
 - Uses Docker
 
 ### Development Workflow
-- Uses GitHub Actions
+- Uses GitHub Actions (Continuous integration) 
 
 ### Project Management
 - Write Documentation
