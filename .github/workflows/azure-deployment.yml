@@ -30,12 +30,13 @@ jobs:
       - name: Build and push Docker images
         uses: azure/docker-login@v1
         with:
-          login-server: havask.azurecr.io 
+          login-server: havask.azurecr.io
           username: ${{ secrets.AZURE_CONTAINER_REGISTRY_USERNAME }}
           password: ${{ secrets.AZURE_CONTAINER_REGISTRY_PASSWORD }}
 
       - name: Build and push React.js Docker image
         run: |
+          echo ${{ secrets.DOCKERHUB_TOKEN }} | docker login -u havask --password-stdin
           docker build -t $IMAGE_REACT ./front-end
           docker push $IMAGE_REACT
 
