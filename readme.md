@@ -1,25 +1,23 @@
-## Scrope of the project
+## Scope of the Project
 
+### Front-End Implementation
+- React.js
 
-* Front end implementation 
-    -React.js 
+### Back-End Implementation
+- Node.js
+- Express
+- Sqlite
 
-* Back end implementation
-    -Node.js
-    -Express
-    -Sql3lite 
+### Technology Stack
+- Uses AWS
+- Uses Docker
 
-* Uses AWSdddddd
+### Development Workflow
+- Uses GitHub Actions
 
-* Uses docker 
-    -
-* Uses github action
-    -
-* Write documentation 
-    -
-* Version control
-    -Pull requests, raising issues, branching 
-
-
-
-
+### Project Management
+- Write Documentation
+- Version Control
+  - Pull Requests
+  - Raising Issues
+  - Branching
