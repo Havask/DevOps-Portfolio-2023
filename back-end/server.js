@@ -8,7 +8,7 @@ const cors = require('cors');
 app.use(cors());
 
 // Set up the server
-const HTTP_PORT = 3000;
+const HTTP_PORT = 8000;
 app.listen(HTTP_PORT, () => {
   console.log("Server is listening on port " + HTTP_PORT);
 });

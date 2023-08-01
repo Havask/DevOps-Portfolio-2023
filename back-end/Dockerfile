@@ -1,8 +1,8 @@
 FROM node:14-alpine
 WORKDIR /app
 COPY package.json package-lock.json ./
-RUN npm ci
+RUN npm install
 COPY . .
 CMD ["node", "server.js"]
 
-EXPOSE 3000
+EXPOSE 8000

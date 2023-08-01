@@ -52,6 +52,17 @@ Ensure the back end server is running on http://localhost:3000.
 Run the React front end using npm start 
 
 
+How to build and run the react docker image locally: 
+
+docker build -t my-react-app:latest . 
+docker run -d -p 3000:3000 my-react-app:latest
+Go to port http://localhost:3000/
+
+How to build and run the react docker image locally: 
+
+docker build -t my-node-app:latest . 
+docker run -d -p 8000:8000 my-node-app:latest
+Go to port http://localhost:8000/
 
 
 ## Usage
