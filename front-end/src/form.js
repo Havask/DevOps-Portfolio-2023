@@ -11,7 +11,7 @@ function TodoApp() {
 
   const fetchTodos = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/list');
+      const response = await axios.get('http://localhost:8000/list');
       setTodos(response.data);
     } catch (error) {
       console.error('Error fetching todos:', error);
@@ -34,7 +34,7 @@ function TodoApp() {
         todo: inputValue,
       };
 
-      await axios.post('http://localhost:3000/list', newTodo);
+      await axios.post('http://localhost:8000/list', newTodo);
       fetchTodos();
       setInputValue('');
     } catch (error) {
@@ -44,7 +44,7 @@ function TodoApp() {
 
   const handleTodoDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:3000/list/${id}`);
+      await axios.delete(`http://localhost:8000/list/${id}`);
       fetchTodos();
     } catch (error) {
       console.error('Error deleting todo:', error);
