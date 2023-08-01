@@ -1,0 +1,59 @@
+name: Azure Deployment
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  IMAGE_REACT: image_name_react
+  IMAGE_NODE: image_name_node
+  WEB_APP_NAME: havask.azurewebsites.net
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Clear npm cache
+        run: npm cache clean --force
+
+      - name: Print current working directory
+        run: pwd
+
+      - name: Install dependencies
+        working-directory: ./front-end
+        run: npm install
+
+      - name: Build and push Docker images
+        uses: azure/docker-login@v1
+        with:
+          login-server: havask.azurecr.io 
+          username: ${{ secrets.AZURE_CONTAINER_REGISTRY_USERNAME }}
+          password: ${{ secrets.AZURE_CONTAINER_REGISTRY_PASSWORD }}
+
+      - name: Build and push React.js Docker image
+        run: |
+          docker build -t $IMAGE_REACT ./front-end
+          docker push $IMAGE_REACT
+
+      - name: Build and push Node.js Docker image
+        run: |
+          docker build -t $IMAGE_NODE ./back-end
+          docker push $IMAGE_NODE
+
+      - name: View debug log
+        run: cat /root/.npm/_logs/2023-07-19T09_35_35_822Z-debug.log
+
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: $WEB_APP_NAME
+          images: |
+            $IMAGE_REACT
+            $IMAGE_NODE
+          run-from-package: false
+          startup-command: |
+            sh -c 'cd ./build; npm install; npm run start'

@@ -1,7 +1,6 @@
 
+-Få det nye repoet til å fungere 
 
-Style todo listen bedre
+-Fiks react dependencies issues
 
-
-
-https://www.youtube.com/watch?v=Buh3GjHPmjo&ab_channel=FelixYu
+-
