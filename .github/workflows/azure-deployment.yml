@@ -8,7 +8,7 @@ on:
 env:
   IMAGE_REACT: image_name_react
   IMAGE_NODE: image_name_node
-  WEB_APP_NAME: havask.azurewebsites.net 
+  WEB_APP_NAME: havask.azurewebsites.net
 
 jobs:
   build-and-deploy:
@@ -33,6 +33,10 @@ jobs:
           login-server: havask.azurecr.io
           username: ${{ secrets.AZURE_CONTAINER_REGISTRY_USERNAME }}
           password: ${{ secrets.AZURE_CONTAINER_REGISTRY_PASSWORD }}
+
+      - name: Verify and Create ACR Repository
+        run: |
+          az acr repository show --name havask --repository $IMAGE_REACT || az acr repository create --name havask --name $IMAGE_REACT
 
       - name: Build and push React.js Docker image
         run: |
