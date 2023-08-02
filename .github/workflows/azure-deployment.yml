@@ -30,9 +30,6 @@ jobs:
       - name: Build Node.js Docker image
         run: docker build -t $WEB_APP_NAME/$IMAGE_NODE ./back-end
 
-      - name: View debug log
-        run: cat /root/.npm/_logs/2023-07-19T09_35_35_822Z-debug.log
-
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v2
         with:
