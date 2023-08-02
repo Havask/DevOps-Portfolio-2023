@@ -8,7 +8,7 @@ on:
 env:
   IMAGE_REACT: image_name_react
   IMAGE_NODE: image_name_node
-  WEB_APP_NAME: havask
+  WEB_APP_NAME: havask.azurewebsites.net 
 
 jobs:
   build-and-deploy:
