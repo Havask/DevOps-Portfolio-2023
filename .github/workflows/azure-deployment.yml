@@ -36,16 +36,13 @@ jobs:
 
       - name: Build and push React.js Docker image
         run: |
-          docker build -t $IMAGE_REACT ./front-end
-          docker tag $IMAGE_REACT ${{ secrets.DOCKER_USERNAME }}/$IMAGE_REACT
-          docker login docker.io -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-          docker push ${{ secrets.DOCKER_USERNAME }}/$IMAGE_REACT
+          docker build -t $WEB_APP_NAME/$IMAGE_REACT ./front-end
+          docker push $WEB_APP_NAME/$IMAGE_REACT
 
       - name: Build and push Node.js Docker image
         run: |
-          docker build -t $IMAGE_NODE ./back-end
-          docker tag $IMAGE_NODE ${{ secrets.DOCKER_USERNAME }}/$IMAGE_NODE
-          docker push ${{ secrets.DOCKER_USERNAME }}/$IMAGE_NODE
+          docker build -t $WEB_APP_NAME/$IMAGE_NODE ./back-end
+          docker push $WEB_APP_NAME/$IMAGE_NODE
 
       - name: View debug log
         run: cat /root/.npm/_logs/2023-07-19T09_35_35_822Z-debug.log
@@ -55,8 +52,8 @@ jobs:
         with:
           app-name: $WEB_APP_NAME
           images: |
-            $IMAGE_REACT
-            $IMAGE_NODE
+            $WEB_APP_NAME/$IMAGE_REACT
+            $WEB_APP_NAME/$IMAGE_NODE
           run-from-package: false
           startup-command: |
             sh -c 'cd ./build; npm install; npm run start'
