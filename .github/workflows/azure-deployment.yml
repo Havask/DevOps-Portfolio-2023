@@ -27,16 +27,21 @@ jobs:
         working-directory: ./front-end
         run: npm install
 
+      - name: Log in to Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Verify and Create ACR Repository
+        run: |
+          az acr repository show --name havask --repository $IMAGE_REACT || az acr repository create --name havask --name $IMAGE_REACT
+
       - name: Build and push Docker images
         uses: azure/docker-login@v1
         with:
           login-server: havask.azurecr.io
           username: ${{ secrets.AZURE_CONTAINER_REGISTRY_USERNAME }}
           password: ${{ secrets.AZURE_CONTAINER_REGISTRY_PASSWORD }}
-
-      - name: Verify and Create ACR Repository
-        run: |
-          az acr repository show --name havask --repository $IMAGE_REACT || az acr repository create --name havask --name $IMAGE_REACT
 
       - name: Build and push React.js Docker image
         run: |
