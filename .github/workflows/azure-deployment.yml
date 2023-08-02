@@ -24,30 +24,11 @@ jobs:
         working-directory: ./front-end
         run: npm install
 
-      - name: Build and push Docker images
-        uses: azure/docker-login@v1
-        with:
-          login-server: havask.azurecr.io
-          username: ${{ secrets.AZURE_CONTAINER_REGISTRY_USERNAME }}
-          password: ${{ secrets.AZURE_CONTAINER_REGISTRY_PASSWORD }}
-
       - name: Build React.js Docker image
         run: docker build -t $WEB_APP_NAME/$IMAGE_REACT ./front-end
 
-      - name: Tag React.js Docker image
-        run: docker tag $WEB_APP_NAME/$IMAGE_REACT:latest docker.io/havask/$IMAGE_REACT:latest
-
-      - name: Push React.js Docker image
-        run: docker push docker.io/havask/$IMAGE_REACT:latest
-
       - name: Build Node.js Docker image
         run: docker build -t $WEB_APP_NAME/$IMAGE_NODE ./back-end
-
-      - name: Tag Node.js Docker image
-        run: docker tag $WEB_APP_NAME/$IMAGE_NODE:latest docker.io/havask/$IMAGE_NODE:latest
-
-      - name: Push Node.js Docker image
-        run: docker push docker.io/havask/$IMAGE_NODE:latest
 
       - name: View debug log
         run: cat /root/.npm/_logs/2023-07-19T09_35_35_822Z-debug.log
@@ -57,8 +38,8 @@ jobs:
         with:
           app-name: $WEB_APP_NAME
           images: |
-            docker.io/havask/$IMAGE_REACT:latest
-            docker.io/havask/$IMAGE_NODE:latest
+            havask.azurecr.io/$IMAGE_REACT:latest
+            havask.azurecr.io/$IMAGE_NODE:latest
           run-from-package: false
           startup-command: |
             sh -c 'cd ./build; npm install; npm run start'
