@@ -9,7 +9,7 @@ env:
   IMAGE_REACT: image_name_react
   IMAGE_NODE: image_name_node
   WEB_APP_NAME: havask.azurewebsites.net
-  ACR_LOGIN_SERVER: havask.azurecr.io
+  ACR_LOGIN_SERVER: havask1.azurecr.io
 
 jobs:
   build-and-deploy:
@@ -45,9 +45,6 @@ jobs:
         run: |
           docker login $ACR_LOGIN_SERVER -u ${{ secrets.AZURE_CONTAINER_REGISTRY_USERNAME }} -p ${{ secrets.AZURE_CONTAINER_REGISTRY_PASSWORD }}
           docker push $ACR_LOGIN_SERVER/$IMAGE_NODE
-
-      - name: View debug log
-        run: cat /root/.npm/_logs/2023-07-19T09_35_35_822Z-debug.log
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v2
