@@ -8,7 +8,7 @@ on:
 env:
   IMAGE_REACT: image_name_react
   IMAGE_NODE: image_name_node
-  WEB_APP_NAME: havask.azurewebsites.net
+  WEB_APP_NAME: webapp-havask.azurewebsites.net
   ACR_LOGIN_SERVER: havask1.azurecr.io
 
 jobs:
