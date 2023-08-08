@@ -10,6 +10,8 @@ env:
   IMAGE_NODE: image_name_node
   WEB_APP_NAME: havask-webapp.azurewebsites.net
   ACR_LOGIN_SERVER: havask1.azurecr.io
+  AKS_RESOURCE_GROUP: YOUR_AKS_RESOURCE_GROUP
+  AKS_CLUSTER_NAME: YOUR_AKS_CLUSTER_NAME
 
 jobs:
   build-and-deploy:
@@ -45,6 +47,12 @@ jobs:
         run: |
           docker login $ACR_LOGIN_SERVER -u ${{ secrets.AZURE_CONTAINER_REGISTRY_USERNAME }} -p ${{ secrets.AZURE_CONTAINER_REGISTRY_PASSWORD }}
           docker push $ACR_LOGIN_SERVER/$IMAGE_NODE
+
+      - name: Deploy to AKS Cluster
+        run: |
+          az aks get-credentials --resource-group $AKS_RESOURCE_GROUP --name $AKS_CLUSTER_NAME
+          kubectl apply -f path/to/deployment.yaml
+          kubectl apply -f path/to/service.yaml
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v2
