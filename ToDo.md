@@ -1,7 +1,2 @@
 
--Få det nye repoet til å fungere 
-
--Fiks react dependencies issues
-
--Hei
-dasdasdasds
+Lag en UML av hvordan web applikasjonen er strukturert
