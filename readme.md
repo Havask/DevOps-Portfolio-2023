@@ -1,4 +1,20 @@
 
+# Project Documentation
+
+## Table of Contents
+- [Introduction](#introduction)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Configuration](#configuration)
+- [API Reference](#api-reference)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Introduction
+
+This project is a showcase of my skills and understanding in full stack development. By incorporating a comprehensive stack, including front-end, back-end, and database technologies, this repository highlights my proficiency in building robust and functional applications. Explore the codebase, learn from the implementation details, and get inspired for your own projects.
+
+
 ## Scope of the Project
 
 ### Front-End Implementation
@@ -22,24 +38,6 @@
   - Pull Requests
   - Raising Issues
   - Branching
-
-
-# Project Documentation
-
-## Table of Contents
-- [Introduction](#introduction)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Configuration](#configuration)
-- [API Reference](#api-reference)
-- [Contributing](#contributing)
-- [License](#license)
-
-## Introduction
-
-This project is a showcase of my skills and understanding in full stack development. By incorporating a comprehensive stack, including front-end, back-end, and database technologies, this repository highlights my proficiency in building robust and functional applications. Explore the codebase, learn from the implementation details, and get inspired for your own projects.
-
-To do list 
 
 
 ## Installation
