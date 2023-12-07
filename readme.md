@@ -4,6 +4,8 @@
 ## Table of Contents
 - [Introduction](#introduction)
 - [Installation](#installation)
+- [Scope](#scrope)
+- [Architecture](#Architecture)
 - [Usage](#usage)
 - [Configuration](#configuration)
 - [API Reference](#api-reference)
@@ -71,6 +73,44 @@ docker run -d -p 3000:3000 my-react-app:latest
 
 Go to port http://localhost:3000/
 
+
+## Architecture
+
+Containerized architecture  
+
+The web application utilizes a containerized architecture, where the front end and back end components are encapsulated in separate containers. This design choice was made to enhance scalability and facilitate a streamlined Continuous Integration/Continuous Deployment (CI/CD) process, resulting in quicker and more dependable deployments.
+
+Front-end Container:
+
+This container holds the front-end part of the web application, built using React.js or similar technology. It is responsible for handling user interfaces and interactions.
+The Front-end Container communicates with the Back-end Container through HTTP requests, enabling a clear separation of concerns and promoting a well-defined API design for the backend.
+
+Back-end Container:
+
+The Back-end Container contains the back-end logic, developed using Node.js or a similar server-side technology. It is in charge of handling business logic, database operations, and other backend functionalities.
+The Back-end Container exposes well-defined APIs that the Fro
+
+HTTP Communication:
+
+The decision to establish communication between the Front-end and Back-end Containers via HTTP requests was made to foster a clear and standardized API design for the backend. Utilizing HTTP requests encourages the definition of well-structured APIs, making versioning, maintenance, and extensibility of the backend functionalities more manageable.nt-end Container can interact with through HTTP requests.
+
+CI/CD
+
+GitHub Actions is used as the Continuous Integration/Continuous Deployment (CI/CD) tool for the web application. This automation streamlines the development and deployment process, ensuring that each code change goes through a standardized build and deployment pipeline.
+
+This design ensures a reliable, scalable, and standardized deployment solution. The combination of GitHub Actions, Docker, and Azure services makes for an efficient and developer-friendly CI/CD pipeline.
+
+ACR
+
+When the web application's front-end and back-end components are containerized using Docker, the next step is to store these container images in a container registry. In this case, the web application uses the Azure Container Registry (ACR) to accomplish this.
+
+Azure Container Registry (ACR) is a private container registry provided by Microsoft Azure. It allows users to securely store and manage Docker container images. Think of ACR as a centralized repository where all the Docker images used by the application are stored. These images can be pulled and deployed on various Azure services or Kubernetes clusters.
+
+Kubernetes: 
+
+The decision to include Kubernetes in the web application was driven by the desire to gain valuable hands-on experience with this powerful container orchestration platform. While Kubernetes may not be strictly necessary for the application's current scale and complexity, its inclusion offers several significant benefits:
+
+Component Diagram: 
 
 
 ## Usage
