@@ -44,23 +44,33 @@ This project is a showcase of my skills and understanding in full stack developm
 
 Needs dependencies installed (axios in the front end, sqlite3, express, and body-parser in the back end).
 
+
+To set up the project, ensure that the required dependencies are installed:
+
 Run the back end server by executing node server.js 
 Ensure the back end server is running on http://localhost:3000.
+### Running the Back-end Server
 
-Run the React front end using npm start 
+```bash
+npm start 
+```
+npm start 
 
+### Running the Back-end Server
+Execute the following command to run the back-end server:
+```bash
+node server.js
+```
 
 How to build and run the react docker image locally: 
 
+```bash
 docker build -t my-react-app:latest . 
 docker run -d -p 3000:3000 my-react-app:latest
+```
+
 Go to port http://localhost:3000/
 
-How to build and run the react docker image locally: 
-
-docker build -t my-node-app:latest . 
-docker run -d -p 8000:8000 my-node-app:latest
-Go to port http://localhost:8000/
 
 
 ## Usage
