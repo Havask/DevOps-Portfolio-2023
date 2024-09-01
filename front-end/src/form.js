@@ -84,6 +84,8 @@ function TodoApp() {
   );
 }
 
+
+//Define the CSS styles for the components
 const styles = {
   container: {
     maxWidth: '400px',
@@ -92,26 +94,26 @@ const styles = {
     fontFamily: 'Arial, sans-serif',
   },
   heading: {
-    fontSize: '30px',
-    marginBottom: '30px',
+    fontSize: '40px',
+    marginBottom: '60px',
     textAlign: 'center',
   },
   form: {
     display: 'flex',
-    marginBottom: '20px',
+    marginBottom: '30px',
   },
 
   input: {
     flex: '1',
     padding: '8px',
     fontSize: '16px',
-    border: '1px solid #ddd',
+    border: '2px solid #ddd',
     borderRadius: '4px',
     marginRight: '8px',
   },
 
   button: {
-    padding: '8px 16px',
+    padding: '9px 16px',
     fontSize: '16px',
     background: '#007bff',
     color: '#fff',
@@ -127,11 +129,11 @@ const styles = {
   todoItem: {
     display: "flex",
     alignItems: "center",
-    marginBottom: "10px",
+    marginBottom: "15px",
   },
   dot: {
-    width: "8px",
-    height: "8px",
+    width: "10px",
+    height: "10px",
     borderRadius: "50%",
     backgroundColor: "black",
     marginRight: "10px",
@@ -140,14 +142,28 @@ const styles = {
     flex: 1,
   },
   deleteButton: {
-    marginLeft: "10px",
-    padding: "5px 10px",
+    marginLeft: "15px",
+    padding: "5px 12px",
     backgroundColor: "red",
     color: "white",
     border: "none",
     borderRadius: "4px",
     cursor: "pointer",
   },
+  centeredButton: {
+    display: 'flex',
+    justifyContent: 'center',
+  },
+  newListButton: {
+    backgroundColor: 'green',
+    color: 'white',
+    padding: '5px 10px',
+    border: 'none',
+    borderRadius: '4px',
+    cursor: 'pointer',
+  },
+
 };
+
 
 export default TodoApp;
